@@ -1,0 +1,122 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ETSY API",
+    "description": "Node JS ETSY API services.\n\nFirst, you need to get a token: \n\nhttps://www.charliefalcon.click/oauth",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Access With API KEY",
+      "description": "Those services are just accessed with an api key."
+    },
+    {
+      "name": "Access With API KEY and oauth2",
+      "description": "Those services are accessed with an api key and oauth2."
+    }
+  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api-key/shops": {
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Find shop: Get the information of the shop whose name is known and registered in .env.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-key/shop": {
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Get shop: Get the information of the shop whose shopId is known and registered in global",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-key/sections": {
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Get sections",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-key/all-active-lists": {
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Get all active lists",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-key/listing/{listingId}": {
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Get listing with listingId",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "description": "enter listing id",            
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-key/listing/images/{listingId}":{
+      "get": {
+        "tags": ["Access With API KEY"],
+        "summary": "Get images with listingId",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "description": "enter listing id",            
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-token/listing-by-shop":{
+      "get": {
+        "tags": ["Access With API KEY and oauth2"],
+        "summary": "Get listing by the shop (with the token). Before you must take the token.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+
+  }
+}

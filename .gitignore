@@ -1,0 +1,42 @@
+.DS_Store
+node_modules
+/dist
+/resources
+/components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+
+# local env files
+.env.local
+.env.*.local
+.env
+.env.test
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+#config files
+mysql-config.*
+
+*.pem
+*.ppk
+
+
