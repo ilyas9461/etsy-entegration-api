@@ -66,7 +66,7 @@
         }
       }
     },
-    "/api-key/listing/{listingId}": {
+    "/api-key/listings/{listingId}": {
       "get": {
         "tags": ["Access With API KEY"],
         "summary": "Get listing with listingId",
@@ -86,7 +86,7 @@
         }
       }
     },
-    "/api-key/listing/images/{listingId}":{
+    "/api-key/listings/images/{listingId}":{
       "get": {
         "tags": ["Access With API KEY"],
         "summary": "Get images with listingId",
@@ -106,7 +106,7 @@
         }
       }
     },
-    "/api-token/listing-by-shop":{
+    "/api-token/listings-by-shop":{
       "get": {
         "tags": ["Access With API KEY and oauth2"],
         "summary": "Get listing by the shop (with the token). Before you must take the token.",
@@ -116,7 +116,53 @@
           }
         }
       }
+    },
+    "/api-token/listings-inventory/{listingId}":{
+      "get": {
+        "tags": ["Access With API KEY and oauth2"],
+        "summary": "Get images with listingId",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "description": "enter listing id",            
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-token//listings/{listingId}/products/{productId}":{
+      "get": {
+        "tags": ["Access With API KEY and oauth2"],
+        "summary": "Get images with listingId",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "description": "enter listing id",            
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "enter product id",            
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
-
   }
 }

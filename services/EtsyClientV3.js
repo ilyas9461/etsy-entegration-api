@@ -108,7 +108,7 @@ class EtsyClientV3 {
   getListingsByShop(options) {
     this.accessToken = "accessToken" in options ? options.accessToken : null;
     this.shopId = "shopId" in options ? options.shopId : process.env.ETSY_SHOP_ID;
-    console.log('getListingsByShop :', options);
+    //console.log('getListingsByShop :', options);
 
     this._assumeShopId();
     this._assumeOAuth2();
@@ -117,28 +117,21 @@ class EtsyClientV3 {
 
   // https://developers.etsy.com/documentation/reference/#operation/getListingInventory
   getListingInventory(listingId, options) {
-     this._assumeField('listingId', listingId);
-     this._assumeOAuth2();
-     return this.limitedEtsyApiFetch(`/listings/${listingId}/inventory`, options);
+    this.accessToken = "accessToken" in options ? options.accessToken : null;
+    //this.shopId = "shopId" in options ? options.shopId : process.env.ETSY_SHOP_ID;
+    this._assumeField('listingId', listingId);
+    this._assumeOAuth2();
+    return this.limitedEtsyApiFetch(`/listings/${listingId}/inventory`, options);
   }
 
   // https://developers.etsy.com/documentation/reference/#operation/getListingProduct
   getListingProduct(listingId, productId, options) {
+     this.accessToken = "accessToken" in options ? options.accessToken : null;
      this._assumeField('listingId', listingId);
      this._assumeField('productId', productId);
      this._assumeOAuth2();
      return this.limitedEtsyApiFetch(`/listings/${listingId}/inventory/products/${productId}`, options);
   }
-
-  /*
-   *
-   *
-   * the api you're looking for is missing ?
-   *  => add an issue ou create a pull-request !
-   *  => https://github.com/creharmony/node-etsy-client
-   *
-   *
-   */
 
   //~ rate limit and api utility tools under
 

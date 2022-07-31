@@ -44,7 +44,12 @@ routerOauth.get("/redirect", async (req, res) => {
     console.log('token: ',ETSY_TOKEN);
     console.log('refresh token :',ETSY_REFRESH_TOKEN);
 
-    res.status(200).send("/oauth/callback route ...:" +JSON.stringify(token));   
+    res.status(200).send(JSON.stringify({
+      token : ETSY_TOKEN,
+      token_type:token.token_type,
+      expires_in:token.expires_in,
+      refresh_token: ETSY_REFRESH_TOKEN,
+    }));   
 });
 
 export { routerOauth };

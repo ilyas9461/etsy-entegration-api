@@ -82,7 +82,8 @@ const etsyGetListingImages= async (req,res) =>{
   }
 };
 
-/* oauth2 required under */
+/* OAUTH2 required under. First, you need to get a token: 
+    ex, https://www.charliefalcon.click/oauth */
 
 const etsyGetListingsByShop=async (req,res) =>{
     const options={
@@ -98,6 +99,36 @@ const etsyGetListingsByShop=async (req,res) =>{
       res.status(500).send(error);
     }
 };
+const etsyGetListingInventory=async (req,res) =>{
+  const listingId= parseInt(req.params.listingId);
+  const options={
+    accessToken:ETSY_TOKEN ? ETSY_TOKEN : null,
+    limit:10
+  };
+  //console.log('options etsyGetListingInventory :', options);
+  try{
+    const data=await etsyClient.getListingInventory(listingId,options);
+    res.status(200).send(data);
+  }catch (error){
+    res.status(500).send(error);
+  }
+};
+
+const etsyGetListingProduct=async (req,res) =>{
+  const listingId= parseInt(req.params.listingId);
+  const productId= parseInt(req.params.productId);
+  const options={
+    accessToken:ETSY_TOKEN ? ETSY_TOKEN : null,
+    limit:10
+  };
+  //console.log('options etsyGetListingInventory :', options);
+  try{
+    const data=await etsyClient.getListingProduct(listingId, productId, options);
+    res.status(200).send(data);
+  }catch (error){
+    res.status(500).send(error);
+  }
+};
 
 export {
     etsyFindShop,
@@ -106,5 +137,7 @@ export {
     etsyGetAllActiveLists,
     etsyGetListing,
     etsyGetListingImages,
-    etsyGetListingsByShop
+    etsyGetListingsByShop,
+    etsyGetListingInventory,
+    etsyGetListingProduct
 };
