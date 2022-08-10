@@ -28,6 +28,9 @@ etsyGetShopInfo().then((res) => {
   console.log("ETSY Shop ID : ", res);
 });
 
+global.ETSY_TOKEN=null;
+global.ETSY_REFRESH_TOKEN=null;
+
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`ETSY API services listening at http://localhost:${port}`);

@@ -38,9 +38,18 @@ async function askToken(etsyApiKey, code, code_verifier, redirect_uri) {
   return token;
 }
 
+async function askTokenWithRefreshToken(etsyApiKey, refreshToken){
+  const token =await oauthService.refreshApiV3Token(etsyApiKey,refreshToken).catch(err =>{
+    console.error(err);
+    return err;
+  });
+  return token;
+}
+
 export{
   askCode,
-  askToken
+  askToken,
+  askTokenWithRefreshToken
 };
 
 // const myArgs = process.argv.slice(2);
