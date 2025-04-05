@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from 'cors';
-import logger from "morgan";
+// import logger from "morgan";
 import { apiRouter } from "./routes/index.js";
 // import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";

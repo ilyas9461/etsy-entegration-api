@@ -1,6 +1,7 @@
 import express from "express";
 const apiRouter = express.Router();
 
+// Other routes combined one file.
 import {routerApiKey } from "./RoutesApiKeyAccess.js";
 import {routerOauth} from './RoutesOauth.js';
 import {routerApiToken} from './RoutesApiToken.js';
